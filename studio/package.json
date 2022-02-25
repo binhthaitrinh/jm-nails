@@ -14,18 +14,28 @@
     "sanity"
   ],
   "dependencies": {
+    "@fontsource/rubik": "^4.5.3",
     "@sanity/base": "^2.27.0",
     "@sanity/core": "^2.27.0",
+    "@sanity/dashboard": "^2.27.0",
     "@sanity/default-layout": "^2.27.0",
     "@sanity/default-login": "^2.27.0",
     "@sanity/desk-tool": "^2.27.0",
     "@sanity/eslint-config-studio": "^2.0.0",
+    "@sanity/structure": "^2.27.0",
     "@sanity/vision": "^2.27.0",
-    "eslint": "^8.6.0",
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",
     "styled-components": "^5.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-standard": "^5.0.0"
+  }
 }

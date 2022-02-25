@@ -17,7 +17,9 @@ module.exports = {
       resolve: "gatsby-source-sanity",
       options: {
         ...clientConfig.sanity,
-        token,
+        token:
+          token ||
+          "sklkKr8W6rVz6NNdHXIGoGEvzrTnDNnjENnxNr4q3g81gKFiULPyigmjPlXgr5JhQmB07j37naUK5FWWwQUNZvWnOidjzGqn1W7EGS94jixcRTaiWkVMlIgXNwVU4ULigZyjlOq28T5mtLrlln7QP0MmepUrmRcudjzYvIZpXzHLIowk0DaQ",
         watchMode: !isProd,
         overlayDrafts: !isProd && token,
       },
@@ -45,7 +47,7 @@ module.exports = {
       resolve: "@chakra-ui/gatsby-plugin",
       options: {
         resetCSS: true,
-        isUsingColorMode: true,
+        // isUsingColorMode: true,
       },
     },
   ],
