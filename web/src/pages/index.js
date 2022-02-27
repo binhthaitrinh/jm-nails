@@ -22,6 +22,7 @@ import { Icon } from "@chakra-ui/react";
 import { RiInstagramFill } from "react-icons/ri";
 import { SiInstagram } from "react-icons/si";
 import { AiFillPhone } from "react-icons/ai";
+import Welcome from "../components/Welcome";
 
 export const query = graphql`
   query HomeQuery {
@@ -299,6 +300,7 @@ const IndexPage = (props) => {
           </Stack>
         </GridItem>
       </Grid>
+      <Welcome />
     </main>
   );
 };
