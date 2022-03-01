@@ -19,6 +19,7 @@
     "@chakra-ui/react": "^1.8.3",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@fontsource/playfair-display": "^4.5.4",
     "@fontsource/playfair-display-sc": "^4.5.2",
     "@fontsource/rubik": "^4.5.3",
     "@sanity/image-url": "^1.0.1",
@@ -35,7 +36,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "swiper": "^8.0.6"
   },
   "devDependencies": {
     "dotenv": "^16.0.0",

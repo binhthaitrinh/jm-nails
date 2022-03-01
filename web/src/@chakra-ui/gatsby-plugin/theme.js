@@ -1,6 +1,7 @@
 import { extendTheme } from "@chakra-ui/react";
 import "@fontsource/rubik";
 import "@fontsource/playfair-display-sc";
+import "@fontsource/playfair-display";
 
 const theme = {
   styles: {
@@ -21,6 +22,7 @@ const theme = {
   },
   colors: {
     primary: "#eeccc7",
+    pinkPrimary: "#c9727a",
     textPrimary: "#454550",
     buttonPrimary: "#911439",
   },

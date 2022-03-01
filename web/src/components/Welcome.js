@@ -40,6 +40,7 @@ export default function Welcome() {
                   textAlign="center"
                   px="3rem"
                   rowSpan={1}
+                  bg="white"
                 >
                   <Heading
                     dangerouslySetInnerHTML={{ __html: card1.heading }}

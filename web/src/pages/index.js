@@ -23,6 +23,9 @@ import { RiInstagramFill } from "react-icons/ri";
 import { SiInstagram } from "react-icons/si";
 import { AiFillPhone } from "react-icons/ai";
 import Welcome from "../components/Welcome";
+import OurWork from "../components/OurWork";
+import Services from "../components/Services";
+import Testimonials from "../components/Testimonials";
 
 export const query = graphql`
   query HomeQuery {
@@ -116,7 +119,7 @@ const IndexPage = (props) => {
           .height(600)
           .url()}
       />
-      <Box bg="primary" position="sticky" top={0}>
+      <Box bg="primary" position="sticky" top={0} zIndex="9999">
         <Box maxW="960px" margin="0 auto" py="1.2rem">
           <HStack justify="space-between">
             <Text fontSize="1.2rem" textTransform={"uppercase"}>
@@ -301,6 +304,9 @@ const IndexPage = (props) => {
         </GridItem>
       </Grid>
       <Welcome />
+      <OurWork />
+      <Services />
+      <Testimonials />
     </main>
   );
 };
