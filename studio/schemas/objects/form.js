@@ -14,5 +14,10 @@ export default {
       title: 'Button CTA',
       type: 'cta',
     },
+    {
+      name: 'photo',
+      title: 'Photo',
+      type: 'figure',
+    },
   ],
 };

@@ -20,12 +20,14 @@ import {
 } from "@chakra-ui/react";
 import { Icon } from "@chakra-ui/react";
 import { RiInstagramFill } from "react-icons/ri";
-import { SiInstagram } from "react-icons/si";
+import { SiInstagram, SiGooglemaps, SiGo } from "react-icons/si";
 import { AiFillPhone } from "react-icons/ai";
 import Welcome from "../components/Welcome";
 import OurWork from "../components/OurWork";
 import Services from "../components/Services";
 import Testimonials from "../components/Testimonials";
+import Contact from "../components/Contact";
+import Container from "../components/Container";
 
 export const query = graphql`
   query HomeQuery {
@@ -307,6 +309,37 @@ const IndexPage = (props) => {
       <OurWork />
       <Services />
       <Testimonials />
+      <Contact />
+      <Box as="footer" mt="8rem" bg="textPrimary" py="4rem">
+        <Container>
+          <HStack justify="space-between" color="white">
+            <Link
+              href={`tel:${data.site.phoneNumber}`}
+              _hover={{ textDecoration: "none" }}
+            >
+              <HStack>
+                <Icon as={AiFillPhone} w="2rem" h="2rem" />
+                <Text fontSize="1.2rem">{data.site.phoneNumber}</Text>
+              </HStack>
+            </Link>
+            <Link
+              href={data.site.instagram}
+              _hover={{ textDecoration: "none" }}
+            >
+              <HStack>
+                <Icon as={SiInstagram} w="2rem" h="2rem" ml="2.4rem" />
+                <Text fontSize="1.2rem">
+                  {data.site.instagram.split("/")[3]}
+                </Text>
+              </HStack>
+            </Link>
+            <HStack>
+              <Icon as={SiGooglemaps} w="2rem" h="2rem" ml="2.4rem" />
+              <Text fontSize="1.2rem">{data.site.address}</Text>
+            </HStack>
+          </HStack>
+        </Container>
+      </Box>
     </main>
   );
 };
