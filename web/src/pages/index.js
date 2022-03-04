@@ -122,7 +122,7 @@ const IndexPage = (props) => {
           .url()}
       />
       <Box bg="primary" position="sticky" top={0} zIndex="9999">
-        <Box maxW="960px" margin="0 auto" py="1.2rem">
+        <Container py="1.6rem">
           <HStack justify="space-between">
             <Text fontSize="1.2rem" textTransform={"uppercase"}>
               Welcome to JM Nails Spa
@@ -150,76 +150,76 @@ const IndexPage = (props) => {
               </Link>
             </HStack>
           </HStack>
-        </Box>
+        </Container>
       </Box>
-      <Stack
-        direction="row"
-        as="nav"
-        justify={"space-between"}
-        align="center"
-        maxW="960px"
-        mx="auto"
-      >
-        <Box>
-          <Link as={GatsbyLink} to="/">
-            <Image
-              src={imageUrlFor(buildImageObj(data.site.logo))
-                .width(100)
-                .height(100)
-                .url()}
-              w="80px"
-            />
-          </Link>
-        </Box>
-        <Box>
-          <Stack
-            as="ul"
-            listStyleType={"none"}
-            spacing="1.6rem"
-            direction={"row"}
-            align="center"
-            justify={"flex-end"}
-            py="3rem"
-          >
-            {data.site.mainNavigation.map((item) => (
+      <Container>
+        <Stack
+          direction="row"
+          as="nav"
+          justify={"space-between"}
+          align="center"
+        >
+          <Box>
+            <Link as={GatsbyLink} to="/">
+              <Image
+                src={imageUrlFor(buildImageObj(data.site.logo))
+                  .width(100)
+                  .height(100)
+                  .url()}
+                w="80px"
+              />
+            </Link>
+          </Box>
+          <Box>
+            <Stack
+              as="ul"
+              listStyleType={"none"}
+              spacing="1.6rem"
+              direction={{ md: "row", sm: "column", base: "column" }}
+              align="center"
+              justify={"flex-end"}
+              py="3rem"
+            >
+              {data.site.mainNavigation.map((item) => (
+                <Link
+                  as={GatsbyLink}
+                  to={`#${item.hash.current}`}
+                  key={item.hash.current}
+                  _hover={{
+                    textDecoration: "none",
+                    borderBottom: "1px solid",
+                    borderBottomColor: "textPrimary",
+                  }}
+                  _focus={{ outline: "none" }}
+                >
+                  <Box as="li" fontSize={"1.2rem"} textTransform="uppercase">
+                    {item.section.heading || "Welcome"}
+                  </Box>
+                </Link>
+              ))}
               <Link
-                as={GatsbyLink}
-                to={`#${item.hash.current}`}
-                key={item.hash.current}
+                href={`tel:${data.site.phoneNumber}`}
                 _hover={{
                   textDecoration: "none",
-                  borderBottom: "1px solid",
-                  borderBottomColor: "textPrimary",
+                  "& > li": {
+                    bg: "textPrimary",
+                  },
                 }}
-                _focus={{ outline: "none" }}
               >
-                <Box as="li" fontSize={"1.2rem"} textTransform="uppercase">
-                  {item.section.heading || "Welcome"}
+                <Box
+                  as="li"
+                  bg="buttonPrimary"
+                  fontSize={"1.6rem"}
+                  p="1rem 2rem"
+                  color="white"
+                >
+                  Book Now
                 </Box>
               </Link>
-            ))}
-            <Link
-              href={`tel:${data.site.phoneNumber}`}
-              _hover={{
-                textDecoration: "none",
-                "& > li": {
-                  bg: "textPrimary",
-                },
-              }}
-            >
-              <Box
-                as="li"
-                bg="buttonPrimary"
-                fontSize={"1.6rem"}
-                p="1rem 2rem"
-                color="white"
-              >
-                Book Now
-              </Box>
-            </Link>
-          </Stack>
-        </Box>
-      </Stack>
+            </Stack>
+          </Box>
+        </Stack>
+      </Container>
       <Grid
         templateColumns="repeat(5, 1fr)"
         maxW="960px"

@@ -25,11 +25,12 @@ export default function Welcome() {
           <section id="welcome">
             <Container>
               <Grid
-                h="280px"
+                // h="280px"
                 templateColumns="repeat(3, 1fr)"
                 templateRows={"1fr"}
-                mt="6rem"
-                gap="3rem"
+                py={{ lg: "6rem", base: "3rem" }}
+                mt={{ lg: "6rem", base: "3rem" }}
+                gap={{ lg: "2rem", base: "1rem" }}
               >
                 <GridItem
                   colSpan={1}
@@ -38,14 +39,15 @@ export default function Welcome() {
                   justifyContent="center"
                   flexDir="column"
                   textAlign="center"
-                  px="3rem"
+                  px={{ lg: "3rem", base: "1.6rem" }}
+                  py={{ lg: "8rem", base: "4rem" }}
                   rowSpan={1}
                   bg="white"
                 >
                   <Heading
                     dangerouslySetInnerHTML={{ __html: card1.heading }}
                   />
-                  <Divider my="1rem" borderColor="textPrimary" w="8rem" />
+                  <Divider my="1rem" borderColor="textPrimary" w="50%" />
                   <Text
                     dangerouslySetInnerHTML={{ __html: card1.text }}
                     fontSize="1.4rem"
@@ -74,14 +76,14 @@ export default function Welcome() {
                   justifyContent="center"
                   flexDir="column"
                   textAlign="center"
-                  px="3rem"
+                  px={{ lg: "3rem", base: "1.6rem" }}
                   bg="primary"
                   rowSpan={1}
                 >
                   <Heading
                     dangerouslySetInnerHTML={{ __html: card2.heading }}
                   />
-                  <Divider my="1rem" borderColor="textPrimary" w="8rem" />
+                  <Divider my="1rem" borderColor="textPrimary" w="50%" />
                   <Text
                     dangerouslySetInnerHTML={{ __html: card2.text }}
                     fontSize="1.4rem"

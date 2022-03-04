@@ -71,7 +71,7 @@ export default function OurWork() {
         console.log(data.content);
         return (
           //   <RenderStuff data={data} />
-          <Box as="section" id="our-work" mt="6rem" py="6rem">
+          <Box as="section" id="our-work" py={{ lg: "6rem", base: "3rem" }}>
             <Container position="relative">
               <Heading
                 size="2xl"
@@ -89,7 +89,11 @@ export default function OurWork() {
                 {data.content.heading}
               </Heading>
               <Box position="relative" mt="6rem">
-                <Box className="swiper mySwiper" w="900px" h="32rem">
+                <Box
+                  className="swiper mySwiper"
+                  w="90%"
+                  h={{ lg: "32rem", base: "26rem" }}
+                >
                   <Box className="swiper-wrapper" h="100%">
                     {data.content.sectionContent.map((img) => (
                       <Box
@@ -118,13 +122,15 @@ export default function OurWork() {
                 </Box>
                 <Box
                   className="swiper-button-prev"
-                  left="-30px"
+                  left={{ lg: "-30px", base: "-8px" }}
+                  top="45%"
                   _after={{ content: '"←"' }}
                   color="textPrimary"
                 />
                 <Box
                   className="swiper-button-next"
-                  right="-30px"
+                  right={{ lg: "-30px", base: "-8px" }}
+                  top="45%"
                   _after={{ content: '"→"' }}
                   color="textPrimary"
                 />

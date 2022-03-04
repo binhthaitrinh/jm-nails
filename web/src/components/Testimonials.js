@@ -100,7 +100,7 @@ export default function Testimonials() {
                   },
                 }}
               >
-                <Box className="swiper mySwiper2" w="900px" h="32rem">
+                <Box className="swiper mySwiper2" w="100%" h="32rem">
                   <Box className="swiper-wrapper" h="100%">
                     {data.content.sectionContent.map((review) => (
                       <Box

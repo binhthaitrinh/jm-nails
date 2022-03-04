@@ -21,38 +21,40 @@ export default function Services() {
       query={query}
       render={(data) => {
         return (
-          <Box as="section" py="6rem" id="our-services">
-            <Container bg="white" p="6rem 3rem">
-              <SectionHeading>{data.content.heading}</SectionHeading>
-              <Box bg="white">
-                {data.content.sectionContent.map((section) => (
-                  <Box key={section.groupedServiceTitle} mb="4rem">
-                    <Heading as="h3" textAlign={"center"} mb="2rem">
-                      {section.groupedServiceTitle}
-                    </Heading>
-                    <Grid
-                      templateColumns="repeat(2, 1fr)"
-                      columnGap={"4rem"}
-                      rowGap="2rem"
-                    >
-                      {section.services.map((service) => {
-                        return (
-                          <GridItem key={service.groupedServiceName}>
-                            <HStack
-                              justify="space-between"
-                              fontSize={"1.6rem"}
-                              borderBottom="1px solid"
-                              borderColor={"textPrimary"}
-                            >
-                              <Text>{service.groupedServiceName}</Text>
-                              <Text>{service.groupedServicePrice}</Text>
-                            </HStack>
-                          </GridItem>
-                        );
-                      })}
-                    </Grid>
-                  </Box>
-                ))}
+          <Box as="section" py={{ lg: "6rem", base: "3rem" }} id="our-services">
+            <Container>
+              <Box bg="white" p="6rem 3rem">
+                <SectionHeading>{data.content.heading}</SectionHeading>
+                <Box bg="white">
+                  {data.content.sectionContent.map((section) => (
+                    <Box key={section.groupedServiceTitle} mb="4rem">
+                      <Heading as="h3" textAlign={"center"} mb="2rem">
+                        {section.groupedServiceTitle}
+                      </Heading>
+                      <Grid
+                        templateColumns="repeat(2, 1fr)"
+                        columnGap={"4rem"}
+                        rowGap="2rem"
+                      >
+                        {section.services.map((service) => {
+                          return (
+                            <GridItem key={service.groupedServiceName}>
+                              <HStack
+                                justify="space-between"
+                                fontSize={"1.6rem"}
+                                borderBottom="1px solid"
+                                borderColor={"textPrimary"}
+                              >
+                                <Text>{service.groupedServiceName}</Text>
+                                <Text>{service.groupedServicePrice}</Text>
+                              </HStack>
+                            </GridItem>
+                          );
+                        })}
+                      </Grid>
+                    </Box>
+                  ))}
+                </Box>
               </Box>
             </Container>
           </Box>
