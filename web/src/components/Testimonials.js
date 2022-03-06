@@ -56,6 +56,9 @@ export default function Testimonials() {
     <StaticQuery
       query={query}
       render={(data) => {
+        console.log("-------------------------------");
+        console.log(data);
+        console.log("-------------------------------");
         return (
           <Box as="section" py="3rem" id="testimonials">
             <Container>

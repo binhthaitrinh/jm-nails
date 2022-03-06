@@ -402,7 +402,7 @@ const IndexPage = (props) => {
       <Welcome />
       <OurWork />
       <Services />
-      {/* <Testimonials /> */}
+      <Testimonials />
       <Contact />
       <Box as="footer" mt="8rem" bg="textPrimary" py="4rem">
         <Container>
