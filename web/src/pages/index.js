@@ -108,6 +108,44 @@ export const query = graphql`
         tagline
       }
     }
+    testimonialContent: sanitySection(
+      hash: { hash: { current: { regex: "/testimonials/" } } }
+    ) {
+      heading
+      subHeading
+      sectionContent {
+        ... on SanityTestimonial {
+          _key
+          _type
+          profilePic {
+            alt
+            caption
+            asset {
+              _id
+            }
+            crop {
+              _key
+              _type
+              bottom
+              right
+              left
+              top
+            }
+            hotspot {
+              _key
+              _type
+              height
+              width
+              x
+              y
+            }
+          }
+          review
+          city
+          name
+        }
+      }
+    }
   }
 `;
 
@@ -116,6 +154,7 @@ const IndexPage = (props) => {
   const [showNav, setShowNav] = React.useState(false);
 
   const { data } = props;
+  console.log(data.testimonialContent);
   return (
     <main>
       <SEO
@@ -402,7 +441,7 @@ const IndexPage = (props) => {
       <Welcome />
       <OurWork />
       <Services />
-      <Testimonials />
+      <Testimonials content={data.testimonialContent} />
       <Contact />
       <Box as="footer" mt="8rem" bg="textPrimary" py="4rem">
         <Container>
