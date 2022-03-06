@@ -4,6 +4,7 @@ import SEO from "../components/seo";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import {
+  AbsoluteCenter,
   Box,
   Center,
   Flex,
@@ -15,6 +16,7 @@ import {
   Link,
   ListItem,
   Stack,
+  TagLeftIcon,
   Text,
   UnorderedList,
 } from "@chakra-ui/react";
@@ -110,6 +112,8 @@ export const query = graphql`
 
 // markup
 const IndexPage = (props) => {
+  const [showNav, setShowNav] = React.useState(false);
+
   const { data } = props;
   return (
     <main>
@@ -134,16 +138,24 @@ const IndexPage = (props) => {
               >
                 <HStack>
                   <Icon as={AiFillPhone} w="2rem" h="2rem" />
-                  <Text fontSize="1.2rem">{data.site.phoneNumber}</Text>
+                  <Text
+                    fontSize="1.2rem"
+                    display={{ base: "none", sm: "block" }}
+                  >
+                    {data.site.phoneNumber}
+                  </Text>
                 </HStack>
               </Link>
               <Link
                 href={data.site.instagram}
                 _hover={{ textDecoration: "none" }}
               >
-                <HStack>
-                  <Icon as={SiInstagram} w="2rem" h="2rem" ml="2.4rem" />
-                  <Text fontSize="1.2rem">
+                <HStack ml={{ base: "0.8rem", sm: "2.4rem" }}>
+                  <Icon as={SiInstagram} w="2rem" h="2rem" />
+                  <Text
+                    fontSize="1.2rem"
+                    display={{ base: "none", sm: "block" }}
+                  >
                     {data.site.instagram.split("/")[3]}
                   </Text>
                 </HStack>
@@ -159,6 +171,54 @@ const IndexPage = (props) => {
           justify={"space-between"}
           align="center"
         >
+          <Box
+            position="fixed"
+            top="8rem"
+            right="1.6rem"
+            zIndex="999999"
+            display={{ base: "block", sm: "none" }}
+            __css={{
+              "&.show > .nav-btn__line": {
+                bgColor: "transparent",
+              },
+              "&.show > .nav-btn__line::before": {
+                top: 0,
+                transform: "rotate(135deg)",
+              },
+              "&.show > .nav-btn__line::after": {
+                top: 0,
+                transform: "rotate(-135deg)",
+              },
+            }}
+            className={showNav && "show"}
+            onClick={() => setShowNav((s) => !s)}
+          >
+            <Box
+              position="relative"
+              className="nav-btn__line"
+              __css={{
+                "&, &::after, &::before": {
+                  w: "4rem",
+                  h: "2px",
+                  bg: "textPrimary",
+                  display: "inline-block",
+                  transition: "all 0.2s ease-out",
+                },
+
+                "&::after, &::before": {
+                  content: '""',
+                  position: "absolute",
+                  left: 0,
+                },
+                "&:after": {
+                  top: "1rem",
+                },
+                "&:before": {
+                  top: "-1rem",
+                },
+              }}
+            />
+          </Box>
           <Box>
             <Link as={GatsbyLink} to="/">
               <Image
@@ -175,10 +235,34 @@ const IndexPage = (props) => {
               as="ul"
               listStyleType={"none"}
               spacing="1.6rem"
-              direction={{ md: "row", sm: "column", base: "column" }}
+              direction={{ sm: "row", base: "column" }}
               align="center"
-              justify={"flex-end"}
+              justify={{ base: "center", sm: "flex-end" }}
               py="3rem"
+              bg={{ base: "white", sm: "transparent" }}
+              height={{ base: "100vh", sm: "auto" }}
+              position={{ base: "fixed", sm: "relative" }}
+              width={{ base: "75vw", sm: "auto" }}
+              top={{ base: 0, sm: "auto" }}
+              right={{ base: showNav ? "0" : "-75vw", sm: "auto" }}
+              zIndex={9998}
+              className={showNav && "show2"}
+              transition="all 0.2s ease-out"
+              // __css={
+              //   {
+              //     // "&.show2": {
+              //     //   right: 0,
+              //     // },
+              //     // "& > a": {
+              //     //   base: {
+              //     //     "margin-bottom": "2rem",
+              //     //   },
+              //     //   sm: {
+              //     //     "margin-bottom": 0,
+              //     //   },
+              //     // },
+              //   }
+              // }
             >
               {data.site.mainNavigation.map((item) => (
                 <Link
@@ -222,14 +306,18 @@ const IndexPage = (props) => {
       </Container>
       <Grid
         templateColumns="repeat(5, 1fr)"
+        templateRows="repeat(5, 1fr)"
         maxW="960px"
+        px="1.6rem"
         mx="auto"
         mt="2rem"
-        h="38rem"
+        h={{ base: "auto", sm: "38rem" }}
       >
         <GridItem
-          colSpan={2}
-          transform={"translateX(3rem)"}
+          colSpan={{ base: 5, sm: 2 }}
+          rowSpan={{ base: 2, sm: 5 }}
+          transform={{ base: "none", sm: "translateX(3rem)" }}
+          h="25rem"
           zIndex="999"
           bgImage={`
         linear-gradient(to right bottom,#f3d6d6,#f1b0c1),url(${imageUrlFor(
@@ -242,6 +330,7 @@ const IndexPage = (props) => {
         `}
           bgBlendMode="soft-light"
           bgSize={"cover"}
+          bgPos="top 35% right 0"
         >
           {/* <Image
             src={imageUrlFor(buildImageObj(data.site.hero.image))
@@ -251,10 +340,11 @@ const IndexPage = (props) => {
           /> */}
         </GridItem>
         <GridItem
-          colSpan={3}
+          colSpan={{ base: 5, sm: 3 }}
+          rowSpan={{ base: 3, sm: 5 }}
           bg="white"
-          transform="translateY(2rem)"
-          p="0 4rem 0 7rem"
+          transform={{ base: "none", sm: "translateY(2rem)" }}
+          p={{ base: "2rem 4rem", sm: "0 4rem 0 7rem" }}
         >
           <Stack align="center" justify={"center"} h="100%">
             <Box>
@@ -312,13 +402,18 @@ const IndexPage = (props) => {
       <Contact />
       <Box as="footer" mt="8rem" bg="textPrimary" py="4rem">
         <Container>
-          <HStack justify="space-between" color="white">
+          <Stack
+            justify="space-between"
+            color="white"
+            direction={{ base: "column", sm: "row" }}
+            spacing="1rem"
+          >
             <Link
               href={`tel:${data.site.phoneNumber}`}
               _hover={{ textDecoration: "none" }}
             >
               <HStack>
-                <Icon as={AiFillPhone} w="2rem" h="2rem" />
+                <Icon as={AiFillPhone} w="2rem" h="2rem" mr="1rem" />
                 <Text fontSize="1.2rem">{data.site.phoneNumber}</Text>
               </HStack>
             </Link>
@@ -327,17 +422,17 @@ const IndexPage = (props) => {
               _hover={{ textDecoration: "none" }}
             >
               <HStack>
-                <Icon as={SiInstagram} w="2rem" h="2rem" ml="2.4rem" />
+                <Icon as={SiInstagram} w="2rem" h="2rem" mr="1rem" />
                 <Text fontSize="1.2rem">
                   {data.site.instagram.split("/")[3]}
                 </Text>
               </HStack>
             </Link>
             <HStack>
-              <Icon as={SiGooglemaps} w="2rem" h="2rem" ml="2.4rem" />
+              <Icon as={SiGooglemaps} w="2rem" h="2rem" mr="1rem" />
               <Text fontSize="1.2rem">{data.site.address}</Text>
             </HStack>
-          </HStack>
+          </Stack>
         </Container>
       </Box>
     </main>

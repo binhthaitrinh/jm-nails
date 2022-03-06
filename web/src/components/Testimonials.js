@@ -34,22 +34,6 @@ export default function Testimonials() {
         delay: 5000,
       },
 
-      //   breakpoints: {
-      //     640: {
-      //       slidesPerView: 3,
-      //     },
-
-      //     900: {
-      //       slidesPerView: 3,
-      //     },
-      //     1200: {
-      //       slidesPerView: 3,
-      //     },
-      //     1800: {
-      //       slidesPerView: 3,
-      //     },
-      //   },
-
       // If we need pagination
       pagination: {
         el: ".swiper-pagination",
@@ -100,7 +84,7 @@ export default function Testimonials() {
                   },
                 }}
               >
-                <Box className="swiper mySwiper2" w="100%" h="32rem">
+                <Box className="swiper mySwiper2" w="100%" py="4rem">
                   <Box className="swiper-wrapper" h="100%">
                     {data.content.sectionContent.map((review) => (
                       <Box
@@ -108,6 +92,7 @@ export default function Testimonials() {
                         key={review._key}
                         h="90%"
                         overflow={"hidden"}
+                        textAlign="center"
                       >
                         <VStack
                           align="center"

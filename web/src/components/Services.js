@@ -32,7 +32,7 @@ export default function Services() {
                         {section.groupedServiceTitle}
                       </Heading>
                       <Grid
-                        templateColumns="repeat(2, 1fr)"
+                        templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)" }}
                         columnGap={"4rem"}
                         rowGap="2rem"
                       >

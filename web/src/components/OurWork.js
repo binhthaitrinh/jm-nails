@@ -23,27 +23,25 @@ export default function OurWork() {
       // Optional parameters
       modules: [Pagination, Navigation],
 
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 30,
       slidesPerGroup: 1,
       loop: true,
       loopFillGroupWithBlank: true,
 
-      //   breakpoints: {
-      //     640: {
-      //       slidesPerView: 3,
-      //     },
+      breakpoints: {
+        // 320: {
+        //   slidesPerView: 1,
+        // },
 
-      //     900: {
-      //       slidesPerView: 3,
-      //     },
-      //     1200: {
-      //       slidesPerView: 3,
-      //     },
-      //     1800: {
-      //       slidesPerView: 3,
-      //     },
-      //   },
+        480: {
+          slidesPerView: 2,
+        },
+
+        900: {
+          slidesPerView: 3,
+        },
+      },
 
       // If we need pagination
       pagination: {
@@ -92,7 +90,8 @@ export default function OurWork() {
                 <Box
                   className="swiper mySwiper"
                   w="90%"
-                  h={{ lg: "32rem", base: "26rem" }}
+                  h={{ lg: "32rem", base: "32rem" }}
+                  px={{ base: "2rem", sm: 0 }}
                 >
                   <Box className="swiper-wrapper" h="100%">
                     {data.content.sectionContent.map((img) => (
@@ -101,13 +100,24 @@ export default function OurWork() {
                         key={img._key}
                         h="85%"
                         overflow={"hidden"}
+                        bgImage={`
+                linear-gradient(to right bottom,#f3d6d6,#f1b0c1),url(${imageUrlFor(
+                  buildImageObj(img)
+                )
+                  .width(600)
+                  .height(600)
+                  .url()})
+                  
+                `}
+                        bgBlendMode="soft-light"
+                        bgSize={"cover"}
                       >
-                        <Image
+                        {/* <Image
                           src={imageUrlFor(buildImageObj(img))
                             .width(400)
                             .height(400)
                             .url()}
-                        />
+                        /> */}
                       </Box>
                     ))}
                   </Box>
@@ -122,14 +132,14 @@ export default function OurWork() {
                 </Box>
                 <Box
                   className="swiper-button-prev"
-                  left={{ lg: "-30px", base: "-8px" }}
+                  left={{ lg: "-5px", base: "0" }}
                   top="45%"
                   _after={{ content: '"←"' }}
                   color="textPrimary"
                 />
                 <Box
                   className="swiper-button-next"
-                  right={{ lg: "-30px", base: "-8px" }}
+                  right={{ lg: "-5px", base: "0" }}
                   top="45%"
                   _after={{ content: '"→"' }}
                   color="textPrimary"

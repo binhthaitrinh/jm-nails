@@ -24,10 +24,14 @@ export default function Contact() {
       render={(data) => (
         <Box as="section" id="contact-us" mt="6rem">
           <Container>
-            <Grid templateColumns={"repeat(2, 1fr)"} bg="primary">
+            <Grid
+              templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)" }}
+              bg="primary"
+            >
               <GridItem>
                 <VStack
                   px="6rem"
+                  py="4rem"
                   align="center"
                   justifyContent="center"
                   h="100%"
@@ -132,7 +136,7 @@ export default function Contact() {
                   </Box>
                 </VStack>
               </GridItem>
-              <GridItem>
+              <GridItem display={{ base: "none", sm: "block" }}>
                 <Box
                   h="480px"
                   w="100%"

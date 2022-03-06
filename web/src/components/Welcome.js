@@ -26,11 +26,12 @@ export default function Welcome() {
             <Container>
               <Grid
                 // h="280px"
-                templateColumns="repeat(3, 1fr)"
-                templateRows={"1fr"}
+                templateColumns={{ base: "1fr", sm: "repeat(3, 1fr)" }}
+                templateRows={{ base: "repeat(3, 1fr)", sm: "1fr" }}
                 py={{ lg: "6rem", base: "3rem" }}
                 mt={{ lg: "6rem", base: "3rem" }}
-                gap={{ lg: "2rem", base: "1rem" }}
+                gap={{ lg: "2rem", base: "2rem", sm: "1rem" }}
+                px={{ base: "3rem", sm: "0" }}
               >
                 <GridItem
                   colSpan={1}
@@ -56,6 +57,7 @@ export default function Welcome() {
                 <GridItem
                   colSpan={1}
                   rowSpan={1}
+                  h={{ base: "30rem", sm: "auto" }}
                   w="100%"
                   bgImage={`
                 linear-gradient(to right bottom,#f3d6d6,#f1b0c1),url(${imageUrlFor(
