@@ -108,9 +108,7 @@ export const query = graphql`
         tagline
       }
     }
-    testimonialContent: sanitySection(
-      hash: { hash: { current: { regex: "/testimonials/" } } }
-    ) {
+    testimonialContent: sanitySection(heading: { regex: "/Testimonials/" }) {
       heading
       subHeading
       sectionContent {
