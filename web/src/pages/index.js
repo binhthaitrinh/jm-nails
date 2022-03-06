@@ -30,6 +30,7 @@ import Services from "../components/Services";
 import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
 import Container from "../components/Container";
+import ExternalLink from "../components/ExternalLink";
 
 export const query = graphql`
   query HomeQuery {
@@ -146,7 +147,7 @@ const IndexPage = (props) => {
                   </Text>
                 </HStack>
               </Link>
-              <Link
+              <ExternalLink
                 href={data.site.instagram}
                 _hover={{ textDecoration: "none" }}
               >
@@ -159,7 +160,7 @@ const IndexPage = (props) => {
                     {data.site.instagram.split("/")[3]}
                   </Text>
                 </HStack>
-              </Link>
+              </ExternalLink>
             </HStack>
           </HStack>
         </Container>
@@ -296,6 +297,7 @@ const IndexPage = (props) => {
                   fontSize={"1.6rem"}
                   p="1rem 2rem"
                   color="white"
+                  transition="all 0.2s ease-out"
                 >
                   Book Now
                 </Box>
@@ -317,7 +319,7 @@ const IndexPage = (props) => {
           colSpan={{ base: 5, sm: 2 }}
           rowSpan={{ base: 2, sm: 5 }}
           transform={{ base: "none", sm: "translateX(3rem)" }}
-          h="25rem"
+          h={{ base: "25rem", sm: "auto" }}
           zIndex="999"
           bgImage={`
         linear-gradient(to right bottom,#f3d6d6,#f1b0c1),url(${imageUrlFor(
@@ -344,7 +346,7 @@ const IndexPage = (props) => {
           rowSpan={{ base: 3, sm: 5 }}
           bg="white"
           transform={{ base: "none", sm: "translateY(2rem)" }}
-          p={{ base: "2rem 4rem", sm: "0 4rem 0 7rem" }}
+          p={{ base: "2rem 4rem", sm: "0 4rem 0 6rem" }}
         >
           <Stack align="center" justify={"center"} h="100%">
             <Box>
@@ -361,6 +363,7 @@ const IndexPage = (props) => {
                 fontSize="2.4rem"
                 mb="2rem"
                 fontWeight={"normal"}
+                lineHeight={1.6}
               >
                 {data.site.hero.heading.split("-")[1]}
               </Heading>
@@ -370,21 +373,22 @@ const IndexPage = (props) => {
               <Box mt="1.6rem">
                 {data.site.hero.ctas.map((cta, index) => (
                   <Link
-                    href={`#${cta.route.hash.current}`}
+                    key={index}
+                    display="inline-block"
+                    href={`tel:${data.site.phoneNumber}`}
                     _hover={{
                       textDecoration: "none",
-                      "& > li": {
+                      "& > div": {
                         bg: "textPrimary",
                       },
                     }}
-                    key={index}
-                    display="inline-block"
                   >
                     <Box
                       bg="buttonPrimary"
                       fontSize={"1.6rem"}
                       p="1rem 2rem"
                       color="white"
+                      transition="all 0.2s ease-out"
                     >
                       {cta.title}
                     </Box>
@@ -417,17 +421,14 @@ const IndexPage = (props) => {
                 <Text fontSize="1.2rem">{data.site.phoneNumber}</Text>
               </HStack>
             </Link>
-            <Link
-              href={data.site.instagram}
-              _hover={{ textDecoration: "none" }}
-            >
+            <ExternalLink href={data.site.instagram}>
               <HStack>
                 <Icon as={SiInstagram} w="2rem" h="2rem" mr="1rem" />
                 <Text fontSize="1.2rem">
                   {data.site.instagram.split("/")[3]}
                 </Text>
               </HStack>
-            </Link>
+            </ExternalLink>
             <HStack>
               <Icon as={SiGooglemaps} w="2rem" h="2rem" mr="1rem" />
               <Text fontSize="1.2rem">{data.site.address}</Text>

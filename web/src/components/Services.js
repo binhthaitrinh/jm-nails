@@ -36,9 +36,11 @@ export default function Services() {
                         columnGap={"4rem"}
                         rowGap="2rem"
                       >
-                        {section.services.map((service) => {
+                        {section.services.map((service, index) => {
                           return (
-                            <GridItem key={service.groupedServiceName}>
+                            <GridItem
+                              key={`${service.groupedServiceName}${service.groupedServicePrice}-${index}`}
+                            >
                               <HStack
                                 justify="space-between"
                                 fontSize={"1.6rem"}

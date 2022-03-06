@@ -67,7 +67,7 @@ export default function Testimonials() {
                 color="pinkPrimary"
                 textAlign={"center"}
               >
-                {data.content.subHeading}
+                {data.content?.subHeading}
               </Text>
               <SectionHeading>{data.content.heading}</SectionHeading>
               <Box

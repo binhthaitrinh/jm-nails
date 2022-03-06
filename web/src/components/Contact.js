@@ -11,7 +11,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { graphql, StaticQuery } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import Container from "./Container";
