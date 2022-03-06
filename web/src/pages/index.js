@@ -4,25 +4,18 @@ import SEO from "../components/seo";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import {
-  AbsoluteCenter,
   Box,
-  Center,
-  Flex,
   Grid,
   GridItem,
   Heading,
   HStack,
   Image,
   Link,
-  ListItem,
   Stack,
-  TagLeftIcon,
   Text,
-  UnorderedList,
 } from "@chakra-ui/react";
 import { Icon } from "@chakra-ui/react";
-import { RiInstagramFill } from "react-icons/ri";
-import { SiInstagram, SiGooglemaps, SiGo } from "react-icons/si";
+import { SiInstagram, SiGooglemaps } from "react-icons/si";
 import { AiFillPhone } from "react-icons/ai";
 import Welcome from "../components/Welcome";
 import OurWork from "../components/OurWork";
@@ -152,7 +145,6 @@ const IndexPage = (props) => {
   const [showNav, setShowNav] = React.useState(false);
 
   const { data } = props;
-  console.log(data.testimonialContent);
   return (
     <main>
       <SEO
@@ -263,6 +255,7 @@ const IndexPage = (props) => {
                 src={imageUrlFor(buildImageObj(data.site.logo))
                   .width(100)
                   .height(100)
+                  .format("webp")
                   .url()}
                 w="80px"
               />
@@ -286,21 +279,6 @@ const IndexPage = (props) => {
               zIndex={9998}
               className={showNav && "show2"}
               transition="all 0.2s ease-out"
-              // __css={
-              //   {
-              //     // "&.show2": {
-              //     //   right: 0,
-              //     // },
-              //     // "& > a": {
-              //     //   base: {
-              //     //     "margin-bottom": "2rem",
-              //     //   },
-              //     //   sm: {
-              //     //     "margin-bottom": 0,
-              //     //   },
-              //     // },
-              //   }
-              // }
             >
               {data.site.mainNavigation.map((item) => (
                 <Link
@@ -364,20 +342,14 @@ const IndexPage = (props) => {
         )
           .width(600)
           .height(600)
+          .format("webp")
           .url()})
           
         `}
           bgBlendMode="soft-light"
           bgSize={"cover"}
           bgPos="top 35% right 0"
-        >
-          {/* <Image
-            src={imageUrlFor(buildImageObj(data.site.hero.image))
-              .width(600)
-              .height(600)
-              .url()}
-          /> */}
-        </GridItem>
+        ></GridItem>
         <GridItem
           colSpan={{ base: 5, sm: 3 }}
           rowSpan={{ base: 3, sm: 5 }}

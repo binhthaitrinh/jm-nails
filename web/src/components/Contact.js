@@ -2,16 +2,14 @@ import {
   Box,
   Button,
   FormControl,
-  FormLabel,
   Grid,
   GridItem,
-  Heading,
   Input,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import { graphql, StaticQuery } from "gatsby";
-import React, { useState } from "react";
+import React from "react";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import Container from "./Container";
@@ -145,6 +143,7 @@ export default function Contact() {
                   )
                     .width(400)
                     .height(400)
+                    .format("webp")
                     .url()})`}
                   bgBlendMode="soft-light"
                   bgSize={"cover"}

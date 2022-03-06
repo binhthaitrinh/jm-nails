@@ -1,13 +1,6 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
-import {
-  Divider,
-  Grid,
-  GridItem,
-  Heading,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { Divider, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
 import Container from "./Container";
@@ -20,7 +13,6 @@ export default function Welcome() {
         const card1 = data.content.sectionContent[0];
         const image = data.content.sectionContent[1];
         const card2 = data.content.sectionContent[2];
-        console.log(data.content);
         return (
           <section id="welcome">
             <Container>
@@ -65,6 +57,7 @@ export default function Welcome() {
                 )
                   .width(600)
                   .height(600)
+                  .format("webp")
                   .url()})
                   
                 `}

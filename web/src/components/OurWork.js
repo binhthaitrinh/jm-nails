@@ -1,15 +1,6 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
-import {
-  Box,
-  Divider,
-  Grid,
-  GridItem,
-  Heading,
-  Image,
-  Text,
-  useFocusEffect,
-} from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
 import Container from "./Container";
@@ -66,9 +57,7 @@ export default function OurWork() {
     <StaticQuery
       query={query}
       render={(data) => {
-        console.log(data.content);
         return (
-          //   <RenderStuff data={data} />
           <Box as="section" id="our-work" py={{ lg: "6rem", base: "3rem" }}>
             <Container position="relative">
               <Heading
@@ -106,19 +95,13 @@ export default function OurWork() {
                 )
                   .width(600)
                   .height(600)
+                  .format("webp")
                   .url()})
                   
                 `}
                         bgBlendMode="soft-light"
                         bgSize={"cover"}
-                      >
-                        {/* <Image
-                          src={imageUrlFor(buildImageObj(img))
-                            .width(400)
-                            .height(400)
-                            .url()}
-                        /> */}
-                      </Box>
+                      ></Box>
                     ))}
                   </Box>
                   <Box

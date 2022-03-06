@@ -1,17 +1,6 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
-import {
-  Divider,
-  Grid,
-  GridItem,
-  Heading,
-  Image,
-  Text,
-  Box,
-  HStack,
-} from "@chakra-ui/react";
-import { imageUrlFor } from "../lib/image-url";
-import { buildImageObj } from "../lib/helpers";
+import { Grid, GridItem, Heading, Text, Box, HStack } from "@chakra-ui/react";
 import Container from "./Container";
 import SectionHeading from "./SectionHeading";
 

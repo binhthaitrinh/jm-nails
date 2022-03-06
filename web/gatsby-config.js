@@ -30,6 +30,12 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        name: `JM Nails Salon`,
+        short_name: `jmnails`,
+        start_url: `/`,
+        background_color: `#eeccc7`,
+        theme_color: `#eeccc7`,
+        display: `minimal-ui`,
         icon: "src/images/icon.png",
       },
     },

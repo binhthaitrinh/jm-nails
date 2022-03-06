@@ -1,16 +1,5 @@
 import React from "react";
-import { graphql, StaticQuery } from "gatsby";
-import {
-  Divider,
-  Grid,
-  GridItem,
-  Heading,
-  Image,
-  Text,
-  Box,
-  HStack,
-  VStack,
-} from "@chakra-ui/react";
+import { Image, Text, Box, VStack } from "@chakra-ui/react";
 import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
 import Container from "./Container";
@@ -96,6 +85,7 @@ export default function Testimonials({ content }) {
                       src={imageUrlFor(buildImageObj(review.profilePic))
                         .width(400)
                         .height(400)
+                        .format("webp")
                         .url()}
                       w="100px"
                       borderRadius={"50%"}
