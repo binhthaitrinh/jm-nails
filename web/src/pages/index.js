@@ -285,21 +285,25 @@ const IndexPage = (props) => {
               transition="all 0.2s ease-out"
             >
               {data.site.mainNavigation.map((item) => (
-                <Link
-                  as={GatsbyLink}
-                  to={`#${item.hash.current}`}
+                <Box
+                  as="li"
+                  fontSize={"1.2rem"}
+                  textTransform="uppercase"
                   key={item.hash.current}
-                  _hover={{
-                    textDecoration: "none",
-                    borderBottom: "1px solid",
-                    borderBottomColor: "textPrimary",
-                  }}
-                  _focus={{ outline: "none" }}
                 >
-                  <Box as="li" fontSize={"1.2rem"} textTransform="uppercase">
+                  <Link
+                    as={GatsbyLink}
+                    to={`#${item.hash.current}`}
+                    _hover={{
+                      textDecoration: "none",
+                      borderBottom: "1px solid",
+                      borderBottomColor: "textPrimary",
+                    }}
+                    _focus={{ outline: "none" }}
+                  >
                     {item.section.heading || "Welcome"}
-                  </Box>
-                </Link>
+                  </Link>
+                </Box>
               ))}
               <Link
                 href={`tel:${data.site.phoneNumber}`}
