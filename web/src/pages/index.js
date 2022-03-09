@@ -300,31 +300,33 @@ const IndexPage = (props) => {
                       borderBottomColor: "textPrimary",
                     }}
                     _focus={{ outline: "none" }}
+                    onClick={() => setShowNav(false)}
                   >
                     {item.section.heading || "Welcome"}
                   </Link>
                 </Box>
               ))}
-              <Link
-                href={`tel:${data.site.phoneNumber}`}
-                _hover={{
-                  textDecoration: "none",
-                  "& > li": {
-                    bg: "textPrimary",
-                  },
-                }}
+              <Box
+                as="li"
+                bg="buttonPrimary"
+                fontSize={"1.6rem"}
+                p="1rem 2rem"
+                color="white"
+                transition="all 0.2s ease-out"
               >
-                <Box
-                  as="li"
-                  bg="buttonPrimary"
-                  fontSize={"1.6rem"}
-                  p="1rem 2rem"
-                  color="white"
-                  transition="all 0.2s ease-out"
+                <Link
+                  href={`tel:${data.site.phoneNumber}`}
+                  _hover={{
+                    textDecoration: "none",
+                    "& > li": {
+                      bg: "textPrimary",
+                    },
+                  }}
+                  onClick={() => setShowNav(false)}
                 >
                   Book Now
-                </Box>
-              </Link>
+                </Link>
+              </Box>
             </Stack>
           </Box>
         </Stack>
@@ -367,21 +369,10 @@ const IndexPage = (props) => {
         >
           <Stack align="center" justify={"center"} h="100%">
             <Box>
-              <Heading
-                as="h1"
-                fontSize="2.4rem"
-                lineHeight={1.6}
-                fontWeight="normal"
-              >
+              <Heading as="h1" fontSize="2.4rem" lineHeight={1.6}>
                 {data.site.hero.heading.split("-")[0]}
               </Heading>
-              <Heading
-                as="h1"
-                fontSize="2.4rem"
-                mb="2rem"
-                fontWeight={"normal"}
-                lineHeight={1.6}
-              >
+              <Heading as="h1" fontSize="2.4rem" mb="2rem" lineHeight={1.6}>
                 {data.site.hero.heading.split("-")[1]}
               </Heading>
               <Text fontSize="1.2rem" lineHeight={"2"}>
