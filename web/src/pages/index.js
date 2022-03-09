@@ -175,6 +175,7 @@ const IndexPage = (props) => {
                     {data.site.phoneNumber}
                   </Text>
                 </HStack>
+                <title>{data.site.phoneNumber}</title>
               </Link>
               <ExternalLink
                 href={data.site.instagram}
@@ -189,6 +190,7 @@ const IndexPage = (props) => {
                     {data.site.instagram.split("/")[3]}
                   </Text>
                 </HStack>
+                <title>{data.site.instagram}</title>
               </ExternalLink>
             </HStack>
           </HStack>
@@ -253,12 +255,14 @@ const IndexPage = (props) => {
             <Link as={GatsbyLink} to="/">
               <Image
                 src={imageUrlFor(buildImageObj(data.site.logo))
-                  .width(100)
-                  .height(100)
+                  .width(80)
+                  .height(80)
                   .format("webp")
                   .url()}
                 w="80px"
+                alt={data.site.logo.alt}
               />
+              <title>JM Nails Spa Logo</title>
             </Link>
           </Box>
           <Box>

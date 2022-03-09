@@ -89,6 +89,7 @@ export default function Testimonials({ content }) {
                         .url()}
                       w="100px"
                       borderRadius={"50%"}
+                      alt={review.profilePic.alt}
                     />
                     <Text fontSize="1.6rem" textAlign={"center"}>
                       {review.review}
