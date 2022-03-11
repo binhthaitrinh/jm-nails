@@ -313,15 +313,16 @@ const IndexPage = (props) => {
                 p="1rem 2rem"
                 color="white"
                 transition="all 0.2s ease-out"
+                _hover={{
+                  bg: "textPrimary",
+                  cursor: "pointer",
+                  "& > a": {
+                    textDecor: "none",
+                  },
+                }}
               >
                 <Link
                   href={`tel:${data.site.phoneNumber}`}
-                  _hover={{
-                    textDecoration: "none",
-                    "& > li": {
-                      bg: "textPrimary",
-                    },
-                  }}
                   onClick={() => setShowNav(false)}
                 >
                   Book Now

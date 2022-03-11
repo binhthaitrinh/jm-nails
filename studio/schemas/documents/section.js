@@ -47,6 +47,18 @@ export default {
         },
       ],
     },
+    {
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+    },
+  ],
+  orderings: [
+    {
+      title: 'Natural',
+      name: 'naturalAsc',
+      by: [{ field: 'order', direction: 'asc' }],
+    },
   ],
   preview: {
     select: {

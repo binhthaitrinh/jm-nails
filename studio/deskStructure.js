@@ -14,5 +14,9 @@ export default () =>
       S.listItem()
         .title('Sections')
         .schemaType('section')
-        .child(S.documentTypeList('section').title('Sections')),
+        .child(
+          S.documentTypeList('section')
+            .title('Sections')
+            .defaultOrdering([{ field: 'order', direction: 'asc' }])
+        ),
     ]);

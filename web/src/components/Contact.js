@@ -59,6 +59,9 @@ export default function Contact() {
                         mb: "1.6rem",
                       },
                     }}
+                    data-netlify="true"
+                    method="POST"
+                    name="contact"
                   >
                     <FormControl>
                       <Input
@@ -120,6 +123,7 @@ export default function Contact() {
                       height="auto"
                       padding="1.6rem 1.6rem"
                       fontSize={"1.2rem"}
+                      htmlType="submit"
                       _hover={{ bg: "textPrimary" }}
                     >
                       Reach out to us!
