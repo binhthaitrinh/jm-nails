@@ -49,85 +49,81 @@ export default function Contact() {
                     {data.content.heading}
                   </SectionHeading>
                   <Box
-                    as="form"
                     w="100%"
                     //   onSubmit={handleOnSubmit}
-                    className="form"
-                    autoComplete="new-password"
                     __css={{
-                      "& > *:not(:last-child)": {
+                      "& > * > *:not(:last-child)": {
                         mb: "1.6rem",
                       },
                     }}
-                    data-netlify="true"
-                    method="POST"
-                    name="contact"
                   >
-                    <FormControl>
-                      <Input
-                        type="text"
-                        name="name"
-                        id="name"
-                        required
-                        placeholder="Enter your name..."
-                        bg="white"
-                        outline="none"
-                        border="none"
-                        borderRadius={0}
-                        size="lg"
-                        fontSize="1.6rem"
-                        height="auto"
-                        padding="1.2rem 1rem"
-                      />
-                    </FormControl>
-                    <FormControl>
-                      <Input
-                        type="email"
-                        name="email"
-                        id="email"
-                        required
-                        placeholder="Enter your email..."
-                        bg="white"
-                        outline="none"
-                        border="none"
-                        borderRadius={0}
-                        size="lg"
-                        fontSize="1.6rem"
-                        height="auto"
-                        padding="1.2rem 1rem"
-                      />
-                    </FormControl>
-                    <FormControl>
-                      <Input
-                        type="text"
-                        name="phoneNumber"
-                        id="phoneNumber"
-                        required
-                        placeholder="Enter your phone number..."
-                        bg="white"
-                        outline="none"
-                        border="none"
-                        borderRadius={0}
-                        size="lg"
-                        fontSize="1.6rem"
-                        height="auto"
-                        padding="1.2rem 1rem"
-                      />
-                    </FormControl>
+                    <form data-netlify="true" method="POST" name="contact">
+                      <FormControl>
+                        <Input
+                          type="text"
+                          name="name"
+                          id="name"
+                          required
+                          placeholder="Enter your name..."
+                          bg="white"
+                          outline="none"
+                          border="none"
+                          borderRadius={0}
+                          size="lg"
+                          fontSize="1.6rem"
+                          height="auto"
+                          padding="1.2rem 1rem"
+                        />
+                      </FormControl>
+                      <FormControl>
+                        <Input
+                          type="email"
+                          name="email"
+                          id="email"
+                          required
+                          placeholder="Enter your email..."
+                          bg="white"
+                          outline="none"
+                          border="none"
+                          borderRadius={0}
+                          size="lg"
+                          fontSize="1.6rem"
+                          height="auto"
+                          padding="1.2rem 1rem"
+                        />
+                      </FormControl>
+                      <FormControl>
+                        <Input
+                          type="text"
+                          name="phoneNumber"
+                          id="phoneNumber"
+                          required
+                          placeholder="Enter your phone number..."
+                          bg="white"
+                          outline="none"
+                          border="none"
+                          borderRadius={0}
+                          size="lg"
+                          fontSize="1.6rem"
+                          height="auto"
+                          padding="1.2rem 1rem"
+                        />
+                      </FormControl>
 
-                    <Button
-                      size="lg"
-                      bg="buttonPrimary"
-                      color="white"
-                      borderRadius={0}
-                      height="auto"
-                      padding="1.6rem 1.6rem"
-                      fontSize={"1.2rem"}
-                      type="submit"
-                      _hover={{ bg: "textPrimary" }}
-                    >
-                      Reach out to us!
-                    </Button>
+                      <Button
+                        size="lg"
+                        bg="buttonPrimary"
+                        color="white"
+                        borderRadius={0}
+                        height="auto"
+                        padding="1.6rem 1.6rem"
+                        fontSize={"1.2rem"}
+                        type="submit"
+                        _hover={{ bg: "textPrimary" }}
+                      >
+                        Reach out to us!
+                      </Button>
+                    </form>
                     {/* {serverState.status && (
                   <div className="form__msg-div">
                   <p className="form__msg u-center-text">
