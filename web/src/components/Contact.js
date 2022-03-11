@@ -62,6 +62,23 @@ export default function Contact() {
                       name="contact"
                       method="POST"
                       action="/"
+                      id="form-contact"
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        const myForm = document.getElementById("form-contact");
+                        const formData = new FormData(myForm);
+                        fetch("/", {
+                          method: "POST",
+                          headers: {
+                            "Content-Type": "application/x-www-form-urlencoded",
+                          },
+                          body: new URLSearchParams(formData).toString(),
+                        })
+                          .then(() =>
+                            console.log("Form successfully submitted")
+                          )
+                          .catch((error) => alert(error));
+                      }}
                     >
                       <FormControl>
                         <Input
