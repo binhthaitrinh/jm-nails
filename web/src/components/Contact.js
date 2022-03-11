@@ -33,7 +33,7 @@ export default function Contact() {
     const form = e.target;
     setServerState({ submitting: true });
     try {
-      await fetch(process.env.GET_FORM_URL, {
+      await fetch("https://getform.io/f/3decbcfe-cf53-49aa-9a13-872f9fc52f32", {
         method: "post",
         body: new FormData(form),
       });
