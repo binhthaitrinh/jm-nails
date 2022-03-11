@@ -60,8 +60,8 @@ export default function Contact() {
                     <form
                       data-netlify="true"
                       name="contact"
-                      method="POST"
-                      action="/"
+                      // method="POST"
+                      // action="/"
                       id="form-contact"
                       onSubmit={(e) => {
                         e.preventDefault();
