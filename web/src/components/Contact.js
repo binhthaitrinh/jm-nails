@@ -9,13 +9,50 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { graphql, StaticQuery } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import Container from "./Container";
 import SectionHeading from "./SectionHeading";
 
 export default function Contact() {
+  const [serverState, setServerState] = useState({
+    submitting: false,
+    status: null,
+  });
+
+  const handleServerResponse = (ok, msg, form) => {
+    setServerState({ submitting: false, status: { ok, msg } });
+    if (ok) {
+      form.reset();
+    }
+  };
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    setServerState({ submitting: true });
+    try {
+      await fetch(
+        process.env.GET_FORM_URL ||
+          "https://getform.io/f/3decbcfe-cf53-49aa-9a13-872f9fc52f32",
+        {
+          method: "post",
+          body: new FormData(form),
+        }
+      );
+
+      handleServerResponse(true, "Form submission success. Thanks!", form);
+      setTimeout(() => {
+        setServerState({ ...serverState, status: null });
+      }, 3000);
+    } catch (err) {
+      handleServerResponse(false, e.response.data.error, form);
+      setTimeout(() => {
+        setServerState({ ...serverState, status: null });
+      }, 3000);
+    }
+  };
   return (
     <StaticQuery
       query={query}
@@ -59,32 +96,11 @@ export default function Contact() {
                   >
                     <form
                       data-netlify="true"
+                      onSubmit={handleOnSubmit}
                       name="contact"
                       // method="POST"
                       // action="/"
                       id="form-contact"
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        const myForm = document.getElementById("form-contact");
-                        console.log(myForm);
-                        console.log(e.target[0].value);
-                        const formData = new FormData();
-                        formData.append("name", e.target[0].value);
-                        formData.append("email", e.target[1].value);
-                        formData.append("phoneNumber", e.target[2].value);
-                        console.log(new URLSearchParams(formData).toString());
-                        fetch("/", {
-                          method: "POST",
-                          headers: {
-                            "Content-Type": "application/x-www-form-urlencoded",
-                          },
-                          body: new URLSearchParams(formData).toString(),
-                        })
-                          .then(() =>
-                            console.log("Form successfully submitted")
-                          )
-                          .catch((error) => alert(error));
-                      }}
                     >
                       <FormControl>
                         <Input
@@ -123,8 +139,8 @@ export default function Contact() {
                       <FormControl>
                         <Input
                           type="text"
-                          name="phoneNumber"
-                          id="phoneNumber"
+                          name="phone"
+                          id="phone"
                           required
                           placeholder="Enter your phone number..."
                           bg="white"
@@ -159,6 +175,11 @@ export default function Contact() {
                   </p>
                   </div>
                 )} */}
+                    {serverState.status && (
+                      <Box mt="1.6rem">
+                        <Text fontSize="1.6em">{serverState.status.msg}</Text>
+                      </Box>
+                    )}
                   </Box>
                 </VStack>
               </GridItem>
