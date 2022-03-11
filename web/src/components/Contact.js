@@ -57,7 +57,12 @@ export default function Contact() {
                       },
                     }}
                   >
-                    <form data-netlify="true" method="POST" name="contact">
+                    <form
+                      data-netlify="true"
+                      name="contact"
+                      method="POST"
+                      action="/"
+                    >
                       <FormControl>
                         <Input
                           type="text"
