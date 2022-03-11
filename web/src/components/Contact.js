@@ -60,13 +60,19 @@ export default function Contact() {
                     <form
                       data-netlify="true"
                       name="contact"
-                      method="POST"
-                      action="/"
+                      // method="POST"
+                      // action="/"
                       id="form-contact"
                       onSubmit={(e) => {
                         e.preventDefault();
                         const myForm = document.getElementById("form-contact");
-                        const formData = new FormData(myForm);
+                        console.log(myForm);
+                        console.log(e.target[0].value);
+                        const formData = new FormData();
+                        formData.append("name", e.target[0].value);
+                        formData.append("email", e.target[1].value);
+                        formData.append("phoneNumber", e.target[2].value);
+                        console.log(new URLSearchParams(formData).toString());
                         fetch("/", {
                           method: "POST",
                           headers: {
