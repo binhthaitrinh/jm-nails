@@ -123,7 +123,7 @@ export default function Contact() {
                       height="auto"
                       padding="1.6rem 1.6rem"
                       fontSize={"1.2rem"}
-                      htmlType="submit"
+                      type="submit"
                       _hover={{ bg: "textPrimary" }}
                     >
                       Reach out to us!
